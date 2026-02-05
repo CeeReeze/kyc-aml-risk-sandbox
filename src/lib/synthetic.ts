@@ -11,8 +11,11 @@ const mulberry32 = (seed: number) => {
 };
 
 const pick = <T>(items: T[], rng: () => number): T => {
+  if (items.length === 0) {
+    throw new Error("Cannot pick from empty array");
+  }
   const index = Math.floor(rng() * items.length);
-  return items[index] ?? items[0];
+  return items[index] ?? (items[0] as T);
 };
 
 const chance = (probability: number, rng: () => number) => rng() < probability;

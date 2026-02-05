@@ -38,10 +38,11 @@ describe("calculateRiskScore", () => {
       countryRisk: "high"
     });
     expect(result.drivers.length).toBeGreaterThan(0);
-    for (let i = 1; i < result.drivers.length; i += 1) {
-      expect(result.drivers[i - 1].contribution).toBeGreaterThanOrEqual(
-        result.drivers[i].contribution
-      );
-    }
+    result.drivers.forEach((driver, index, arr) => {
+      if (index === 0) return;
+      const previous = arr[index - 1];
+      if (!previous) throw new Error("Missing previous driver");
+      expect(previous.contribution).toBeGreaterThanOrEqual(driver.contribution);
+    });
   });
 });
