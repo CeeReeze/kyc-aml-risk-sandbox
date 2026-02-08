@@ -357,7 +357,7 @@ function App() {
           risk scoring can be structured.
         </p>
         <p>
-          Build by Celian Kouame. Add the repo link here once published.
+          Build by Celian Kouame. <a href="https://github.com/CeeReeze/kyc-aml-risk-sandbox">Repo</a>
         </p>
       </footer>
     </div>
